@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.kra.datamahasiswa.databinding.ActivityMainBinding
+import com.kra.datamahasiswa.extensions.hideKeyboard
 import com.kra.datamahasiswa.modules.BaseActivity
 import com.kra.datamahasiswa.utils.SwipeToDeleteCallback
 import com.kra.datamahasiswa.view.adapter.StudentsAdapter
@@ -59,9 +60,10 @@ class MainActivity : BaseActivity() {
 
         binding.inputSearch.let {
             it.addTextChangedListener(searchTextWatcher)
-            it.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
+            it.setOnEditorActionListener(OnEditorActionListener { view, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    viewModel.studentNameQuery.value = "%${v.text}%"
+                    view.hideKeyboard()
+                    viewModel.studentNameQuery.value = "%${view.text}%"
                     return@OnEditorActionListener true
                 }
                 false
