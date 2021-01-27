@@ -9,7 +9,7 @@ import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-abstract class BaseActivity() : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
 	inline fun <T : ViewBinding> AppCompatActivity.viewBinding(
 		crossinline bindingInflater: (LayoutInflater) -> T) =
@@ -20,13 +20,4 @@ abstract class BaseActivity() : AppCompatActivity() {
 	fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) {
         liveData.observe(this, Observer(body))
     }
-
-    inline fun <T : Any, L : LiveData<T>> LifecycleOwner.observeNonNull(
-        liveData: L,
-        crossinline body: (T) -> Unit
-    ) {
-        liveData.observe(this, Observer { it?.let(body) })
-    }
-
-
 }

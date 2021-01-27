@@ -14,10 +14,6 @@ class StudentRepo @Inject constructor(
 ) {
     private val studentDao = db.studentDao()
 
-    fun getAllStudents(): LiveData<List<StudentDb>> {
-        return studentDao.getAllStudents()
-    }
-
     fun searchStudentsByName(name: String): LiveData<List<StudentDb>> {
         return studentDao.searchStudentsName(name)
     }

@@ -13,9 +13,6 @@ interface StudentDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertStudentData(obj: StudentDb)
 
-    @Query("SELECT * FROM StudentDb")
-    fun getAllStudents(): LiveData<List<StudentDb>>
-
     @Query("SELECT * FROM StudentDb WHERE name LIKE :name")
     fun searchStudentsName(name: String?): LiveData<List<StudentDb>>
 
