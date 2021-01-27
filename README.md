@@ -8,4 +8,4 @@ This application features :
   - Night mode
 
 
-![Alt Text](https://media.giphy.com/media/I1hjtASNCi6tp4T4SZ/giphy.gif)
+![Alt Text](https://media.giphy.com/media/I1hjtASNCi6tp4T4SZ/giphy.gif) ![Alt Text](https://media.giphy.com/media/LfNFJdzNkGEwBX7MxX/giphy.gif)
